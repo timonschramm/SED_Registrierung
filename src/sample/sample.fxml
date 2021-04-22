@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.2" fx:controller="sample.Controller">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
 
     <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
         <children>
@@ -54,21 +54,32 @@
                             <Font size="18.0" />
                         </font>
                     </Label>
-                    <Button layoutX="22.0" layoutY="318.0" mnemonicParsing="false" onAction="#formAuswertung" prefHeight="25.0" prefWidth="122.0" style="-fx-background-color: blue;" text="Anmelden" textFill="WHITE" />
-                    <TextField fx:id="vorname" accessibleText="button1" layoutX="22.0" layoutY="49.0" promptText="Vorname" />
-                    <TextField fx:id="nachname" layoutX="191.0" layoutY="49.0" promptText="Nachname" />
-                    <RadioButton fx:id="lehrender" layoutX="22.0" layoutY="22.0" mnemonicParsing="false" text="Lehrender">
+
+
+                    <RadioButton onAction="#istEinStudent" fx:id="studierender" layoutX="23.0" layoutY="22.0" mnemonicParsing="false" selected="true" text="Studierender" toggleGroup="$rolle">
                         <toggleGroup>
                             <ToggleGroup fx:id="rolle" />
                         </toggleGroup>
                     </RadioButton>
-                    <RadioButton fx:id="studierender" layoutX="128.0" layoutY="22.0" mnemonicParsing="false" text="Studierender" toggleGroup="$rolle" />
-                    <TextField fx:id="email" layoutX="22.0" layoutY="162.0" promptText="Email" />
+                    <RadioButton onAction="#istEinLehrender" fx:id="lehrender" layoutX="135.0" layoutY="22.0" mnemonicParsing="false" text="Lehrender" toggleGroup="$rolle"/>
+                    <TextField fx:id="vorname" accessibleText="button1" layoutX="22.0" layoutY="49.0" promptText="Vorname" />
+                    <TextField fx:id="nachname" layoutX="191.0" layoutY="49.0" promptText="Nachname" />
                     <TextField fx:id="straße" layoutX="22.0" layoutY="89.0" promptText="Straße" />
                     <TextField fx:id="hausnummer" layoutX="191.0" layoutY="89.0" promptText="Hausnummer" />
-                    <TextField fx:id="lehrstuhlfeld" layoutX="22.0" layoutY="127.0" promptText="Lehrstuhl" />
+
+                    <TextField fx:id="studienfach" layoutX="23.0" layoutY="127.0" promptText="Studienfach" />
+
+                    <TextField fx:id="forschungsgebiet" layoutX="191.0" layoutY="127.0" promptText="Forschungsgebiet" visible="false" />
+                    <TextField fx:id="lehrstuhlfeld" layoutX="22.0" layoutY="127.0" promptText="Lehrstuhl" visible="false" />
+
+
+
+
+
+                    <TextField fx:id="email" layoutX="22.0" layoutY="162.0" promptText="Email" />
                     <PasswordField fx:id="password" layoutX="22.0" layoutY="201.0" promptText="Password" />
                     <PasswordField fx:id="password_bes" layoutX="22.0" layoutY="237.0" promptText="Password bestätigen" />
+                    <Button layoutX="22.0" layoutY="318.0" mnemonicParsing="false" onAction="#formAuswertung" prefHeight="25.0" prefWidth="122.0" style="-fx-background-color: blue;" text="Anmelden" textFill="WHITE" />
                 </children>
             </AnchorPane>
         </children>

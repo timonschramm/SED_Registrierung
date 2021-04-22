@@ -28,7 +28,7 @@ public class Main extends Application {
 
     public static void main(String[] args) {
 
-        //launch(args);
+        launch(args);
 
 
         String url="jdbc:mysql://localhost:3306/testdb";
@@ -40,7 +40,17 @@ public class Main extends Application {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/testdb", username, password);
             Statement stmt = connection.createStatement();
 
-            String sql = "CREATE TABLE personen(PersonID int, Vorname varchar(255));";
+            String sql = "" +
+                    "CREATE TABLE IF NOT EXISTS studierende(" +
+                    "matrikelnummer int PRIMARY KEY," +
+                    " vorname varchar(30)," +
+                    " nachname varchar(30)," +
+                    " email varchar(30)," +
+                    " password varchar(255)," +
+                    " profilbildurl varchar(255)," +
+                    " straße varchar(255)," +
+                    " hausnummer int" +
+                    ");";
             stmt.executeUpdate(sql);
 
 
