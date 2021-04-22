@@ -6,6 +6,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+
+/* Imports für die Datenbank */
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.ResultSet;
+import java.sql.Statement;
+/* --- */
+
 public class Main extends Application {
 
     @Override
@@ -18,7 +27,29 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        launch(args);
+
+        //launch(args);
+
+
+        String url="jdbc:mysql://localhost:3306/testdb";
+        String username="root";
+        String password="";
+        String db = "testdb";
+
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/testdb", username, password);
+            Statement stmt = connection.createStatement();
+
+            String sql = "CREATE TABLE personen(PersonID int, Vorname varchar(255));";
+            stmt.executeUpdate(sql);
+
+
+        } catch (SQLException throwables) {
+            System.out.println("Error");
+            throwables.printStackTrace();
+        }
+
+
     }
 
     public void printtest(){
